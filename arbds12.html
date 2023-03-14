@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>TYPE 36 M2 KRISNA GRAHA LOVINA</title>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="gesture-detector.js"></script>
+  <script src="gesture-handler.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden; font-family: Monospace; pointer-events: auto;'>
+
+
+
+  <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector
+    id="scene">
+    <a-assets>
+      <a-asset-item id="bowser" src="/asset/12.glb">
+      </a-asset-item>
+    </a-assets>
+
+    <a-marker type='pattern' url='/asset/pattern-12.patt' raycaster="objects: .clickable" emitevents="true"
+      cursor="fuse: false; rayOrigin: mouse;" id="markerA">
+      <a-entity id="bowser-model" gltf-model="#bowser" position="0 0 0" scale="0.2 0.2 0.2" class="clickable"
+        gesture-handler>
+      </a-entity>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+
+  <div class="container" style="pointer-events: none;">
+    <div class="card">
+      <button style="pointer-events: auto;" class="btn-card">Info Lebih Lanjut</button>
+      <div style="pointer-events: auto;" class="card-body d-none">
+        <h2>
+          12
+        </h2>
+        <h2>
+          TYPE 36 M2 KRISNA GRAHA LOVINA
+        </h2>
+        <p>
+          Rumah ini tampak mewah dengan desain tangga yang menyambut di depan pintu utama. Selain itu, paduan warna
+          cream serta batu candi putih memberikan kesan natural yang indah. Penempatan kaca-kaca dilengkapi dengan
+          penerangan lampu sorot menjadikannya nampak hangat sekaligus megah. Halaman rumah yang ditanami rumput hijau
+          membuat rumah terlihat asri.
+        </p>
+        <a href="https://www.bellodesainstudio.com/arbds12" class="card-link">Lihat Selengkapnya</a>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+<script>
+  const btn = document.querySelector('.btn-card'),
+    bdy = document.querySelector('.card-body')
+
+  btn.addEventListener('click', () => {
+    bdy.classList.toggle('d-none')
+  })
+</script>
+
+</html>

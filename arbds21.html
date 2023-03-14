@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Gesture Interactions - A-Frame & AR.js</title>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="gesture-detector.js"></script>
+  <script src="gesture-handler.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+  <div class="container">
+    <div class="card">
+      <button class="btn-card">Info Lebih Lanjut</button>
+      <div class="card-body d-none">
+        <h2>08</h2>
+        <h2>Kerobokan</h2>
+        <p>Rumah ini tampak tegas dengan bangunan berwarna putih serta ornamen yang dominan berwarna hitam. Dibuat
+          dengan dua lantai, rumah ini terlihat minimalis sederhana. Roster pada bangunan ini selai menjadi sirkulasi,
+          penggunaan material ini memberikan sentuhan yang mahal dan elegan. Ditambah dengan tanaman hijau yang merambat
+          menjadikan rumah ini terlihat hidup dan homey.</p>
+        <a href="https://www.bellodesainstudio.com/arbds8" class="card-link">Baca Selengkapnya</a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector
+    id="scene">
+    <a-assets>
+      <a-asset-item id="bowser" src="/asset/08.glb">
+      </a-asset-item>
+    </a-assets>
+
+    <a-marker type='pattern' url='/asset/pattern-08.patt' raycaster="objects: .clickable" emitevents="true"
+      cursor="fuse: false; rayOrigin: mouse;" id="markerA">
+      <a-entity id="bowser-model" gltf-model="#bowser" position="0 0 0" scale="0.2 0.2 0.2" class="clickable"
+        gesture-handler>
+      </a-entity>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+
+</body>
+
+<script>
+  const btn = document.querySelector('.btn-card'),
+    bdy = document.querySelector('.card-body')
+
+  btn.addEventListener('click', () => {
+    bdy.classList.toggle('d-none')
+  })
+</script>
+
+</html>

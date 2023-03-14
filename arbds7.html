@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>YUDISTIRA</title>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="gesture-detector.js"></script>
+  <script src="gesture-handler.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden; font-family: Monospace; pointer-events: auto;'>
+
+
+
+  <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector
+    id="scene">
+    <a-assets>
+      <a-asset-item id="bowser" src="/asset/07.glb">
+      </a-asset-item>
+    </a-assets>
+
+    <a-marker type='pattern' url='/asset/pattern-07.patt' raycaster="objects: .clickable" emitevents="true"
+      cursor="fuse: false; rayOrigin: mouse;" id="markerA">
+      <a-entity id="bowser-model" gltf-model="#bowser" position="0 0 0" scale="0.2 0.2 0.2" class="clickable"
+        gesture-handler>
+      </a-entity>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+
+  <div class="container" style="pointer-events: none;">
+    <div class="card">
+      <button style="pointer-events: auto;" class="btn-card">Info Lebih Lanjut</button>
+      <div style="pointer-events: auto;" class="card-body d-none">
+        <h2>
+          07
+        </h2>
+        <h2>
+          YUDISTIRA
+        </h2>
+        <p>
+          Rumah ini dibangun dengan konsep minimalis mengingat lebar rumah yang tak seberapa. Lantai dasar diisi dengan
+          garasi serta pintu utama dengan aksen kayu yang sederhana. Dinding yang diisi dengan penerangan cahaya lampu
+          membuat rumah ini tampak hangat. Ukiran-ukiran detail disisipkan pada beberapa tempat seperti pilar memberikan
+          kesan tegas. Selain itu, motif garis-garis sederhana membuat rumah tampak mewah. Lantai dua rumah ini
+          dilengkapi dengan pintu menuju balkon. Sentuhan atap berbentuk trapesium menjadi sentuhan terakhir pada
+          bangunan.
+        </p>
+        <a href="https://www.bellodesainstudio.com/arbds7" class="card-link">Lihat Selengkapnya</a>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+<script>
+  const btn = document.querySelector('.btn-card'),
+    bdy = document.querySelector('.card-body')
+
+  btn.addEventListener('click', () => {
+    bdy.classList.toggle('d-none')
+  })
+</script>
+
+</html>

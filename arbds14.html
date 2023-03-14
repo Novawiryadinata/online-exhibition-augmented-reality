@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>TYPE 100 M2 CONARY LOVINA</title>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="gesture-detector.js"></script>
+  <script src="gesture-handler.js"></script>
+</head>
+
+<body style='margin : 0px; overflow: hidden; font-family: Monospace; pointer-events: auto;'>
+
+
+
+  <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector
+    id="scene">
+    <a-assets>
+      <a-asset-item id="bowser" src="/asset/14.glb">
+      </a-asset-item>
+    </a-assets>
+
+    <a-marker type='pattern' url='/asset/pattern-14.patt' raycaster="objects: .clickable" emitevents="true"
+      cursor="fuse: false; rayOrigin: mouse;" id="markerA">
+      <a-entity id="bowser-model" gltf-model="#bowser" position="0 0 0" scale="0.2 0.2 0.2" class="clickable"
+        gesture-handler>
+      </a-entity>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+
+  <div class="container" style="pointer-events: none;">
+    <div class="card">
+      <button style="pointer-events: auto;" class="btn-card">Info Lebih Lanjut</button>
+      <div style="pointer-events: auto;" class="card-body d-none">
+        <h2>
+          14
+        </h2>
+        <h2>
+          TYPE 100 M2 CONARY LOVINA
+        </h2>
+        <p>
+          Rumah dengan desain compact ini memiliki atap Hip, walau terkesan kecil namun rumah ini memiliki halaman
+          terbuka yang luas. Terdapat 2 akses pintu masuk, yakni pintu utama yang mengarah ke ruang tamu + ruang
+          keluarga dan 1 pintu yang mengarah langsung ke dapur. Penerapan ini memiliki kelebihan karena tidak akan
+          mengganggu aktifitas pada ruangan tengah jika terdapat sanak keluarga yang datang mengunjungi rumah Anda
+        </p>
+        <a href="https://www.bellodesainstudio.com/arbds14" class="card-link">Lihat Selengkapnya</a>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+<script>
+  const btn = document.querySelector('.btn-card'),
+    bdy = document.querySelector('.card-body')
+
+  btn.addEventListener('click', () => {
+    bdy.classList.toggle('d-none')
+  })
+</script>
+
+</html>
